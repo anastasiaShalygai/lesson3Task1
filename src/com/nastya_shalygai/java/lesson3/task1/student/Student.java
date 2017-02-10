@@ -24,6 +24,8 @@ public class Student {
                 System.out.print("- Обучение не закончено. До окончания осталось ");
             else System.out.print("- Обучение закончено. После окончания прошло ");
 
+            //Avoid hardcoded parameters
+            //Notify me to tell you about String.format()
             System.out.print(abs(individualProgram.getDaysEndOfTheProgram() / 24) + " д " + abs(individualProgram.getDaysEndOfTheProgram() % 24) + " ч ");
         } else {
             System.out.print("\n ФИО: " + initials
@@ -32,9 +34,11 @@ public class Student {
                     + "\n Длительность программы в часах: " + individualProgram.getSumContinuance() + " ч"
                     + "\n Дата старта: " + IndividualProgram.convertDateToString(individualProgram.getDateStart())
                     + "\n Дата завершения: " + IndividualProgram.convertDateToString(individualProgram.getDateEnd()));
+            //Please, use {} braces after EVERY if-else statement - it is easily to read such code :)
             if (individualProgram.getDaysEndOfTheProgram() <= 0) System.out.print("\n До окончания осталось : ");
             else System.out.print("\n После окончания прошло: ");
 
+            //Avoid hardcoded parameters
             System.out.print(abs(individualProgram.getDaysEndOfTheProgram() / 24) + " д " + abs(individualProgram.getDaysEndOfTheProgram() % 24) + " ч ");
             System.out.println("\n--------------------------------------------");
         }

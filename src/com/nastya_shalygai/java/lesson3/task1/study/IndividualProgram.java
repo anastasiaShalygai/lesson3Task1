@@ -50,11 +50,12 @@ public class IndividualProgram {
 
     /**
      * Method to convert String type in the Date
-     * @param dateString - date value in a String
+     * @param dateString - date value in a String that have format dd.MM.yyyy
      * @return - date value in the type Date
      */
     public static Date convertStringToDate(String dateString) {
         try {
+            //dd.MM.yyyy - can be a constant value, because it is using more than one time.
             DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
             Date date = format.parse(dateString);
             return date;
@@ -66,6 +67,7 @@ public class IndividualProgram {
 
     public static String convertDateToString(Date date) {
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        // you can simplify by - return dateFormat.format(date);
         String dateString = dateFormat.format(date);
         return dateString;
     }
@@ -82,6 +84,9 @@ public class IndividualProgram {
     public int getDaysEndOfTheProgram() {
         Date newDate = new Date();
         long seconds = (newDate.getTime() - getDateEnd().getTime());
+        //Avoid magic numbers
+        //Not exact var name was chosen. It may confuse your colleagues.
+        //You probably get diffHours value?
         long diffDays = seconds / (60 * 60 * 1000);
         return (int) diffDays;
     }
